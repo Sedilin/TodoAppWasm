@@ -1,0 +1,21 @@
+{
+  "Users": [
+    {
+      "Id": 1,
+      "UserName": "string"
+    },
+    {
+      "Id": 2,
+      "UserName": "tina"
+    },
+    {
+      "Id": 3,
+      "UserName": "lukk"
+    },
+    {
+      "Id": 4,
+      "UserName": "Kevin"
+    }
+  ],
+  "Todos": []
+}
