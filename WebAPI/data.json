@@ -15,7 +15,30 @@
     {
       "Id": 4,
       "UserName": "Kevin"
+    },
+    {
+      "Id": 5,
+      "UserName": "Chris"
     }
   ],
-  "Todos": []
+  "Todos": [
+    {
+      "Id": 1,
+      "Owner": {
+        "Id": 1,
+        "UserName": "string"
+      },
+      "Title": "Shopping",
+      "IsCompleted": false
+    },
+    {
+      "Id": 2,
+      "Owner": {
+        "Id": 5,
+        "UserName": "Chris"
+      },
+      "Title": "Bowling",
+      "IsCompleted": false
+    }
+  ]
 }
