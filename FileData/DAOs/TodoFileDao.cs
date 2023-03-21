@@ -55,4 +55,27 @@ public class TodoFileDao : ITodoDao
         }
         return Task.FromResult(result);
     }
+
+    public Task UpdateAsync(Todo todo)
+    {
+        Todo? existing = context.Todos.FirstOrDefault(t => t.Id == todo.Id);
+
+        if (existing == null)
+        {
+            throw new Exception($"Todo with id {todo.Id} does not exist!");
+        }
+
+        context.Todos.Remove(existing);
+        context.Todos.Add(todo);
+        
+        context.SaveChanges();
+
+        return Task.CompletedTask;
+    }
+
+    public Task<Todo?> GetByIdAsync(int id)
+    {
+        Todo? result = context.Todos.FirstOrDefault(t => t.Id == id);
+        return Task.FromResult(result);
+    }
 }
