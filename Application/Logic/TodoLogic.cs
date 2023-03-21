@@ -29,6 +29,12 @@ public class TodoLogic : ITodoLogic
         Todo created = await todoDao.CreateAsync(todo);
         return created;
     }
+
+    public Task<IEnumerable<Todo>> GetAsync(SearchTodoParametersDto searchParameters)
+    {
+        return todoDao.GetAsync(searchParameters);
+    }
+
     private void ValidateTodo(TodoCreationDto dto)
     {
         if (string.IsNullOrEmpty(dto.Title)) throw new Exception("Title cannot be empty.");

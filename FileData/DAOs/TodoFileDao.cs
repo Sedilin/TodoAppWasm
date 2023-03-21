@@ -1,5 +1,6 @@
 using Application.DaoInterfaces;
 using Domain;
+using Domain.DTOs;
 
 namespace FileData.DAOs;
 
@@ -27,5 +28,31 @@ public class TodoFileDao : ITodoDao
         context.SaveChanges();
 
         return Task.FromResult(todo);
+    }
+
+    public Task<IEnumerable<Todo>> GetAsync(SearchTodoParametersDto searchParameters)
+    {
+        IEnumerable<Todo> result = context.Todos.AsEnumerable();
+
+        if (!string.IsNullOrEmpty(searchParameters.Username))
+        {
+            // we know username is unique, so just fetch the first
+            result = context.Todos.Where(todo =>
+                todo.Owner.UserName.Equals(searchParameters.Username, StringComparison.OrdinalIgnoreCase));
+        }
+        if (searchParameters.UserId != null)
+        {
+            result = result.Where(t => t.Owner.Id == searchParameters.UserId);
+        }
+        if (searchParameters.CompletedStatus != null)
+        {
+            result = result.Where(t => t.IsCompleted == searchParameters.CompletedStatus);
+        }
+        if (!string.IsNullOrEmpty(searchParameters.TitleContains))
+        {
+            result = result.Where(t =>
+                t.Title.Contains(searchParameters.TitleContains, StringComparison.OrdinalIgnoreCase));
+        }
+        return Task.FromResult(result);
     }
 }
