@@ -29,7 +29,7 @@
 
         try
         {
-            await userService.Create(new UserCreationDto(username));
+            await userService.CreateAsync(new UserCreationDto(username));
             username = "";
             resultMsg = "User successfully created";
             color = "green";
