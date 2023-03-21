@@ -25,24 +25,5 @@
       "UserName": "Lukas"
     }
   ],
-  "Todos": [
-    {
-      "Id": 2,
-      "Owner": {
-        "Id": 4,
-        "UserName": "Kevin"
-      },
-      "Title": "Whatever",
-      "IsCompleted": true
-    },
-    {
-      "Id": 1,
-      "Owner": {
-        "Id": 1,
-        "UserName": "string"
-      },
-      "Title": "Shopping",
-      "IsCompleted": true
-    }
-  ]
+  "Todos": []
 }
