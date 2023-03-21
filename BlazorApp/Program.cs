@@ -19,6 +19,7 @@ builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddScoped<IUserService, UserHttpClient>();
+builder.Services.AddScoped<ITodoService, TodoHttpClient>();
 
 var app = builder.Build();
 

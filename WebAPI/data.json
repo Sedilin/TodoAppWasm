@@ -15,7 +15,30 @@
     {
       "Id": 4,
       "UserName": "Lukas"
+    },
+    {
+      "Id": 5,
+      "UserName": "Oliwia"
     }
   ],
-  "Todos": []
+  "Todos": [
+    {
+      "Id": 1,
+      "Owner": {
+        "Id": 4,
+        "UserName": "Lukas"
+      },
+      "Title": "Sciana",
+      "IsCompleted": false
+    },
+    {
+      "Id": 2,
+      "Owner": {
+        "Id": 4,
+        "UserName": "Lukas"
+      },
+      "Title": "Sciana",
+      "IsCompleted": false
+    }
+  ]
 }
