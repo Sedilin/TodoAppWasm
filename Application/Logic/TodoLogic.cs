@@ -90,6 +90,17 @@ public class TodoLogic : ITodoLogic
         await todoDao.DeleteAsync(id);
     }
 
+    public async Task<TodoBasicDto> GetByIdAsync(int id)
+    {
+        Todo? todo = await todoDao.GetByIdAsync(id);
+        if (todo == null)
+        {
+            throw new Exception($"Todo with id {id} not found");
+        }
+
+        return new TodoBasicDto(todo.Id, todo.Owner.UserName, todo.Title, todo.IsCompleted);
+    }
+
     private void ValidateTodo(TodoCreationDto dto)
     {
         if (string.IsNullOrEmpty(dto.Title)) throw new Exception("Title cannot be empty.");

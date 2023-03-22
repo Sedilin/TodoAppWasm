@@ -21,33 +21,5 @@
       "UserName": "Oliwia"
     }
   ],
-  "Todos": [
-    {
-      "Id": 1,
-      "Owner": {
-        "Id": 4,
-        "UserName": "Lukas"
-      },
-      "Title": "Sciana",
-      "IsCompleted": false
-    },
-    {
-      "Id": 2,
-      "Owner": {
-        "Id": 4,
-        "UserName": "Lukas"
-      },
-      "Title": "Sciana",
-      "IsCompleted": false
-    },
-    {
-      "Id": 3,
-      "Owner": {
-        "Id": 3,
-        "UserName": "Chris"
-      },
-      "Title": "Something",
-      "IsCompleted": false
-    }
-  ]
+  "Todos": []
 }

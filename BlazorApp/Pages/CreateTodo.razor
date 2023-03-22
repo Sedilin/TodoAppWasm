@@ -1,4 +1,5 @@
 @page "/CreateTodo"
+@using UIComponents
 @using Domain
 @using Domain.DTOs
 @using HttpClients.ClientInterfaces
@@ -39,8 +40,13 @@
             }
             <button @onclick="Create" class="acceptbtn">Create</button>
         </div>
+        <Modal ShowModal="showModal">
+            <p>You have successfully added a new Todo item. You should be very proud of yourself!</p>
+            <button @onclick="@Proceed">Wonderful</button>
+        </Modal>
     }
 </div>
+
 
 @code {
     private IEnumerable<User>? users;
@@ -48,6 +54,13 @@
     private string todoTitle = "";
 
     private string msg = "";
+    private bool showModal;
+
+    private void Proceed()
+    {
+        showModal = false;
+        navMgr.NavigateTo("/ViewTodos");
+    }
 
     protected override async Task OnInitializedAsync()
     {
@@ -81,7 +94,7 @@
         {
             TodoCreationDto dto = new((int)selectedUserId, todoTitle);
             await todoService.CreateAsync(dto);
-            navMgr.NavigateTo("/");
+            showModal = true;
         }
         catch (Exception e)
         {
